@@ -480,9 +480,18 @@ namespace _Collections.SingleList
             return lastIndexOf;
         }
 
+        /// <summary>
+        /// Orders <see cref="SingleList{T}" /> randomly
+        /// </summary>
+        public void Randomize()
+        {
+            Random rnd = new Random();
+            _item = _item.OrderBy<T, int>((item) => rnd.Next()).ToArray();
+        }
+
         IEnumerator IEnumerable.GetEnumerator()
         {
             return _item.GetEnumerator();
-        }
+        }  
     }
 }
